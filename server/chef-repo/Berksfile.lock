@@ -1,4 +1,5 @@
 DEPENDENCIES
+  firewall (~> 2.6.5)
   iptables (~> 4.4.1)
   nodejs (~> 6.0.0)
   sc-mongodb (~> 1.2.0)
@@ -12,6 +13,9 @@ GRAPH
   build-essential (8.2.1)
     mingw (>= 1.1)
     seven_zip (>= 0.0.0)
+  chef-sugar (4.1.0)
+  firewall (2.6.5)
+    chef-sugar (>= 0.0.0)
   iptables (4.4.1)
   mingw (2.1.0)
     seven_zip (>= 0.0.0)

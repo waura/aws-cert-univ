@@ -2,5 +2,6 @@ source "https://api.berkshelf.com"
 
 cookbook 'seven_zip', '= 2.0.2'
 cookbook 'iptables', '~> 4.4.1'
+cookbook 'firewall', '~> 2.6.5'
 cookbook 'nodejs', '~> 6.0.0'
 cookbook 'sc-mongodb', '~> 1.2.0'
