@@ -1,0 +1,40 @@
+{
+  "google-login": {
+    "provider": "google",
+    "module": "passport-google-oauth",
+    "strategy": "OAuth2Strategy",
+    "clientID": "{google-client-id-1}",
+    "clientSecret": "{google-client-secret-1}",
+    "callbackURL": "/auth/google/callback",
+    "authPath": "/auth/google",
+    "callbackPath": "/auth/google/callback",
+    "successRedirect": "/auth/account",
+    "failureRedirect": "/login",
+    "scope": ["email", "profile"],
+    "failureFlash": true
+  },
+  "twitter-login": {
+    "provider": "twitter",
+    "authScheme": "oauth",
+    "module": "passport-twitter",
+    "callbackURL": "/auth/twitter/callback",
+    "authPath": "/auth/twitter",
+    "callbackPath": "/auth/twitter/callback",
+    "successRedirect": "/auth/account",
+    "failureRedirect": "/login",
+    "consumerKey": "{twitter-consumer-key}",
+    "consumerSecret": "{twitter-consumer-secret}",
+    "failureFlash": true
+  },
+  "github-login": {
+    "provider": "github",
+    "module": "passport-github",
+    "clientID": "{github-client-id}",
+    "clientSecret": "{github-client-secret}",
+    "callbackURL": "/auth/github/callback",
+    "authPath": "/auth/github",
+    "callbackPath": "/auth/github/callback",
+    "successRedirect": "/auth/account",
+    "failureRedirect": "/login"
+  }
+}

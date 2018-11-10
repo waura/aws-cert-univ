@@ -1,7 +1,14 @@
 
 This is a web site for practicing aws certification.
 
-## start server
+## Create a config file of Third party authentication
+
+```
+$ cd aws-cert-univ/server
+$ cp providers.json.template providers.json
+```
+
+## Start server
 
 ### create a virtual machine for development
 ```
