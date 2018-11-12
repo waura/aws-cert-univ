@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Navbar/>
-    <Login/>
+    <b-container class="bv-row">
+      <router-view/>
+    </b-container>
   </div>
 </template>
 
