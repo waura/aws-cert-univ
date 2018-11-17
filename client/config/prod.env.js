@@ -2,5 +2,5 @@
 module.exports = {
   NODE_ENV: '"production"',
   APP_NAME: '"AWS Certification University"',
-  API_ENDPOINT: '""'
+  API_ENDPOINT: '"http://localhost:3000"'
 }
