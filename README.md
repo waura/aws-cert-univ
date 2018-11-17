@@ -12,7 +12,9 @@ $ cp providers.json.template providers.json
 
 ### create a virtual machine for development
 ```
-$ cd aws-cert-univ/server
+$ cd aws-cert-univ/server/chef-repo
+$ berks vendor cookbooks
+$ cd ../
 $ vagrant up
 $ vagrant ssh
 ```
