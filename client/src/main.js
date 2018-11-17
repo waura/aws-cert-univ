@@ -5,9 +5,17 @@ import VueCookie from 'vue-cookie'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App'
 import router from './router'
+import tough from 'tough-cookie'
+import axiosCookieJarSupport from 'axios-cookiejar-support'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+const axios = require('axios').default
+axiosCookieJarSupport(axios)
+const cookieJar = new tough.CookieJar()
+axios.defaults.jar = cookieJar
+axios.defaults.withCredentials = true
 
 Vue.config.productionTip = false
 Vue.use(VueCookie)

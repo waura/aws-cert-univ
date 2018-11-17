@@ -2,5 +2,6 @@
 module.exports = {
   NODE_ENV: '"production"',
   APP_NAME: '"AWS Certification University"',
-  API_ENDPOINT: '"http://localhost:3000"'
+  BASE_URL: '"http://192.168.33.10.xip.io"',
+  API_ENDPOINT: '"http://192.168.33.10.xip.io:3000"'
 }

@@ -6,7 +6,7 @@
                     label-for="examinationSentence">
         <b-form-input id="examinationSentence"
                       type="text"
-                      v-model="form.examinationSentence"
+                      v-model="form.sentence"
                       required
                       placeholder="Enter Examination Sentence" />
       </b-form-group>
@@ -30,7 +30,7 @@ export default {
   data () {
     return {
       form: {
-        examinationSentence: '',
+        sentence: '',
         options: [
           {
             id: '1',
@@ -60,8 +60,7 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      alert(JSON.stringify(this.form))
-      axios.post(process.env.API_ENDPOINT + '/api/questions', {withCredentials: true})
+      axios.post(process.env.API_ENDPOINT + '/api/questions', this.form)
         .then(response => {
           alert(JSON.stringify(response.data))
         })
