@@ -12,16 +12,24 @@ $ cp providers.json.template providers.json
 
 ### create a virtual machine for development
 ```
-$ cd aws-cert-univ/server/chef-repo
+$ cd aws-cert-univ/chef-repo
 $ berks vendor cookbooks
 $ cd ../
 $ vagrant up
-$ vagrant ssh
 ```
 
 ### start API server
 ```
-$ cd aws-cer-univ-server
+$ vagrant ssh
+$ cd server
+$ npm install
+$ npm start
+```
+
+### start client server
+```
+$ vagrant ssh
+$ cd client
 $ npm install
 $ npm start
 ```
