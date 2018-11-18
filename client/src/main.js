@@ -11,6 +11,7 @@ import axiosCookieJarSupport from 'axios-cookiejar-support'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+// setup cookiejar for axios
 const axios = require('axios').default
 axiosCookieJarSupport(axios)
 const cookieJar = new tough.CookieJar()
