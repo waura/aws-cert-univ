@@ -1,6 +1,6 @@
 {
-  "name": "web",
-  "description": "This is an platform for application server role defined as JSON",
+  "name": "app",
+  "description": "This is an application server role defined as JSON",
   "chef_type": "role",
   "json_class": "Chef::Role",
   "default_attributes": {
@@ -8,6 +8,6 @@
   "override_attributes": {
   },
   "run_list": [
-      "recipe[nodejs]"
+      "recipe[setup-aws-cert-univ]"
   ]
 }

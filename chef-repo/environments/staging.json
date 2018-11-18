@@ -1,0 +1,6 @@
+{
+  "name": "staging",
+  "cookbook_versions": {
+    "staging": "= 1.0.0"
+  }
+}
