@@ -10,6 +10,8 @@ user "acu" do
   home "/home/acu"
   shell "/bin/bash"
   password nil
+  home "/home/acu"
+  manage_home true
   action :create
 end
 
@@ -29,7 +31,44 @@ directory "/var/www" do
 end
 
 git "/var/www/aws-cert-univ" do
+  user 'acu'
+  group 'acu'
   repository "git://github.com/waura/aws-cert-univ.git"
   reference "master"
   action :sync
+end
+
+bash "build aws-cert-univ client" do
+  user 'acu'
+  group 'acu'
+  cwd '/var/www/aws-cert-univ/client'
+  environment(
+   "HOME" => "/home/acu",
+   "NODE_ENV" => "production"
+  )  
+  code <<-EOC
+      npm install
+      npm run build
+  EOC
+end
+
+bash "build aws-cert-univ server" do
+  user 'acu'
+  group 'acu'
+  cwd '/var/www/aws-cert-univ/server'
+  environment(
+   "HOME" => "/home/acu",
+   "NODE_ENV" => "production"
+  )  
+  code <<-EOC
+      npm install
+  EOC
+end
+
+execute 'install strongloop' do
+  command 'npm install -g strongloop'
+end
+
+execute 'run application server' do
+  command 'slc start'
 end
