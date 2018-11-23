@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "chef_zero" do |chef|
     chef.version = '12.19.36'
-    chef.cookbooks_path = ["chef-repo/cookbooks", "chef-repo/site-cookbooks"]
+    chef.cookbooks_path = ["chef-repo/cookbooks"]
     chef.data_bags_path = "chef-repo/data_bags"
     chef.roles_path = "chef-repo/roles"
     chef.nodes_path = "./chef-repo/cookbooks"

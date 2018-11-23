@@ -1,8 +1,12 @@
 DEPENDENCIES
   firewall (~> 2.6.5)
   iptables (~> 4.4.1)
+  mkdir-mongodb
+    path: site-cookbooks/mkdir-mongodb
   nodejs (~> 6.0.0)
   sc-mongodb (~> 1.2.0)
+  setup-aws-cert-univ
+    path: site-cookbooks/setup-aws-cert-univ
   seven_zip (= 2.0.2)
 
 GRAPH
@@ -16,9 +20,12 @@ GRAPH
   chef-sugar (4.1.0)
   firewall (2.6.5)
     chef-sugar (>= 0.0.0)
+  git (9.0.1)
+    build-essential (>= 5.0.0)
   iptables (4.4.1)
   mingw (2.1.0)
     seven_zip (>= 0.0.0)
+  mkdir-mongodb (0.1.0)
   nodejs (6.0.0)
     ark (>= 2.0.2)
     build-essential (>= 5.0)
@@ -26,7 +33,9 @@ GRAPH
     apt (>= 1.8.2)
     build-essential (>= 5.0.0)
     yum (>= 3.0)
+  setup-aws-cert-univ (0.1.0)
+    git (>= 0.0.0)
   seven_zip (2.0.2)
     windows (>= 1.2.2)
-  windows (5.1.4)
+  windows (5.2.2)
   yum (5.1.0)
