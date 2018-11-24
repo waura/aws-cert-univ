@@ -1,6 +1,12 @@
 <template>
   <div>
-    <b-table striped hover :items="questions" :fields="questionFields" />
+    <b-table striped hover :items="questions" :fields="questionFields">
+      <template slot="sentence" slot-scope="data">
+        <router-link :to="`/questions/${data.item.id}`">
+          {{data.item.sentence}}
+        </router-link>
+      </template>
+    </b-table>
     <b-row align-h="between">
       <b-dropdown :text="selectedNumOfQuestions.text">
         <b-dropdown-item v-for="item in itemsOfDropdown" :key="item.text" @click="onSelectedDropdownItem(item)">

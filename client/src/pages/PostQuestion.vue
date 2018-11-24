@@ -1,10 +1,10 @@
 <template>
   <div>
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-      <b-form-group id="examinationSentenceLable"
+      <b-form-group id="sentenceLabel"
                     label="Examination Sentence:"
-                    label-for="examinationSentence">
-        <b-form-input id="examinationSentence"
+                    label-for="sentence">
+        <b-form-input id="sentence"
                       type="text"
                       v-model="form.sentence"
                       required
@@ -13,10 +13,26 @@
       <template v-for="(option, index) in form.options">
         <b-form-group v-bind:label="index" :key="index">
           <b-form-input type="text"
-                        v-model="options"
+                        v-model="form.options[index].sentence"
                         placeholder="Enter" />
         </b-form-group>
       </template>
+      <b-form-group id="answerLable"
+                    label="Examination Answer:"
+                    label-for="examinationSentence">
+        <b-form-input id="answer"
+                      v-model="form.answer"
+                      type="text"
+                      placeholder="Enter Answer" />
+      </b-form-group>
+      <b-form-group id="commentaryLabel"
+                    label="Examination Commentary:"
+                    label-for="commentary">
+        <b-form-textarea id="commentary"
+                        v-model="form.commentary"
+                        placeholder="Enter Commentary of Answer"
+                        :rows="10" />
+      </b-form-group>
       <b-button type="submit" variant="primary">Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
@@ -48,7 +64,9 @@ export default {
             id: '4',
             sentence: ''
           }
-        ]
+        ],
+        answer: '',
+        commentary: ''
       },
       foods: [
         { text: 'Select One', value: null },
