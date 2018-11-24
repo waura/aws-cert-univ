@@ -25,15 +25,15 @@
           <b-dropdown-item href="#">JA</b-dropdown-item>
         </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown right>
+        <b-nav-item-dropdown v-if="loggedin" right>
           <!-- Using button-content slot -->
           <template slot="button-content">
             <em>User</em>
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="/login">Login</b-dropdown-item>
-          <b-dropdown-item href="#">Logout</b-dropdown-item>
+          <b-dropdown-item @click="logout()">Logout</b-dropdown-item>
         </b-nav-item-dropdown>
+        <b-nav-item to="/login" v-if="!loggedin">Login</b-nav-item>
       </b-navbar-nav>
 
     </b-collapse>
@@ -44,7 +44,18 @@
 export default {
   data () {
     return {
-      app_name: process.env.APP_NAME
+      app_name: process.env.APP_NAME,
+      loggedin: false
+    }
+  },
+  created: function () {
+    this.loggedin = (this.$cookie.get('userId') != null)
+  },
+  methods: {
+    logout () {
+      this.$cookie.delete('userId')
+      this.$cookie.delete('access_token')
+      this.loggedin = false
     }
   }
 }
