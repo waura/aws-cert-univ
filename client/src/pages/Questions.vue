@@ -1,23 +1,35 @@
 <template>
   <div>
-    <div>
-      {{question.sentence}}
-    </div>
-    <ol type="A">
-      <li v-for="option in question.options" :key="option.id">
-        {{option.sentence}}
-      </li>
-    </ol>
-    <div>
-      <b-btn v-b-toggle.collapse1 variant="primary">Show Answer</b-btn>
-      <b-collapse id="collapse1" class="mt-2">
+    <b-row class="m-3">
+      <b-col>
         <b-card>
-          <div>Answer: {{question.answer}}</div>
-          <div>Commentary:</div>
-          <div v-html="compiledMarkdown" />
+          {{question.sentence}}
         </b-card>
-      </b-collapse>
-    </div>
+      </b-col>
+    </b-row>
+    <b-row class="m-3">
+      <b-col>
+        <b-card>
+          <ol type="A">
+            <li v-for="option in question.options" :key="option.id">
+              {{option.sentence}}
+            </li>
+          </ol>
+        </b-card>
+      </b-col>
+    </b-row>
+    <b-row class="m-3">
+      <b-col>
+        <b-btn v-b-toggle.collapse1 variant="primary">Show Answer</b-btn>
+        <b-collapse id="collapse1" class="mt-2">
+          <b-card>
+            <div>Answer: {{question.answer}}</div>
+            <div>Commentary:</div>
+            <div v-html="compiledMarkdown" />
+          </b-card>
+        </b-collapse>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
