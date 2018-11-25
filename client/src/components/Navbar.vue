@@ -7,10 +7,12 @@
 
     <b-collapse is-nav id="nav_collapse">
 
+      <!--
       <b-navbar-nav>
         <b-nav-item href="#">Link</b-nav-item>
         <b-nav-item href="/" disabled>Disabled</b-nav-item>
       </b-navbar-nav>
+      -->
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
@@ -31,7 +33,7 @@
             <em>User</em>
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item @click="logout()">Logout</b-dropdown-item>
+          <b-dropdown-item @click="$_logout()">Logout</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item to="/login" v-if="!loggedin">Login</b-nav-item>
       </b-navbar-nav>
@@ -41,21 +43,14 @@
 </template>
 
 <script>
+import auth from './Authentication'
+
 export default {
+  mixins: [auth],
   data () {
     return {
       app_name: process.env.APP_NAME,
       loggedin: false
-    }
-  },
-  created: function () {
-    this.loggedin = (this.$cookie.get('userId') != null)
-  },
-  methods: {
-    logout () {
-      this.$cookie.delete('userId')
-      this.$cookie.delete('access_token')
-      this.loggedin = false
     }
   }
 }
