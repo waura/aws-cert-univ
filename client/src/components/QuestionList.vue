@@ -6,6 +6,20 @@
           {{data.item.sentence}}
         </router-link>
       </template>
+      <template slot="certification_categories" slot-scope="data">
+        <template v-if="data.item.certification_categories">
+          <div v-for="category in data.item.certification_categories" :key="category.id">
+            {{category.name}}
+          </div>
+        </template>
+      </template>
+      <template slot="question_tags" slot-scope="data">
+        <template v-if="data.item.question_tags">
+          <div v-for="tag in data.item.question_tags" :key="tag.id">
+            {{tag.name}}
+          </div>
+        </template>
+      </template>
     </b-table>
     <b-row align-h="between" align-v="center">
       <b-dropdown :text="selectedNumOfQuestions.text">
@@ -42,6 +56,14 @@ export default {
         {
           key: 'sentence',
           sortable: false
+        },
+        {
+          key: 'certification_categories',
+          sortable: false
+        },
+        {
+          key: 'question_tags',
+          sortable: false
         }
       ],
       questions: []
@@ -65,7 +87,8 @@ export default {
         'fields': {
           'id': true,
           'sentence': true
-        }
+        },
+        'include': ['certification_categories', 'question_tags']
       }
       if (this.selectedNumOfQuestions.value != null) {
         // create pagenation parameter

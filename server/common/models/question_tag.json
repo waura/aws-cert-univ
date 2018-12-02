@@ -1,34 +1,22 @@
 {
-  "name": "questions",
+  "name": "question_tag",
+  "plural": "question_tags",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "sentence": {
-      "type": "string",
-      "required": true
-    },
-    "answer": {
-      "type": "string",
-      "required": true
-    },
-    "commentary": {
+    "name": {
       "type": "string",
       "required": true
     }
   },
   "validations": [],
   "relations": {
-    "question_tags": {
+    "questions": {
       "type": "hasAndBelongsToMany",
-      "model": "question_tag",
-      "foreignKey": ""
-    },
-    "certification_categories": {
-      "type": "hasAndBelongsToMany",
-      "model": "certification_category",
+      "model": "questions",
       "foreignKey": ""
     }
   },

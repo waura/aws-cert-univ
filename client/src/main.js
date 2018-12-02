@@ -7,6 +7,7 @@ import App from './App'
 import router from './router'
 import tough from 'tough-cookie'
 import axiosCookieJarSupport from 'axios-cookiejar-support'
+import VoerroTagsInput from '@voerro/vue-tagsinput' // https://github.com/voerro/vue-tagsinput
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -21,6 +22,8 @@ axios.defaults.withCredentials = true
 Vue.config.productionTip = false
 Vue.use(VueCookie)
 Vue.use(BootstrapVue)
+
+Vue.component('tags-input', VoerroTagsInput)
 
 /* eslint-disable no-new */
 new Vue({

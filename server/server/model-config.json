@@ -47,5 +47,13 @@
   "questions": {
     "dataSource": "mongoDS",
     "public": true
+  },
+  "question_tag": {
+    "dataSource": "mongoDS",
+    "public": true
+  },
+  "certification_category": {
+    "dataSource": "mongoDS",
+    "public": true
   }
 }
