@@ -5,6 +5,7 @@ cookbook 'iptables', '~> 4.4.1'
 cookbook 'firewall', '~> 2.6.5'
 cookbook 'nodejs', '~> 6.0.0'
 cookbook 'sc-mongodb', '~> 1.2.0'
+cookbook 'pm2', '~> 0.7.4'
 
 cookbook 'mkdir-mongodb', path: './site-cookbooks/mkdir-mongodb'
 cookbook 'setup-aws-cert-univ', path: './site-cookbooks/setup-aws-cert-univ'
