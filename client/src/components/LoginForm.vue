@@ -32,23 +32,9 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      auth_google_url: process.env.API_ENDPOINT + '/api/auth/google',
-      auth_github_url: process.env.API_ENDPOINT + '/api/auth/github',
-      auth_twitter_url: process.env.API_ENDPOINT + '/api/auth/twitter'
-    }
-  },
-  methods: {
-    onPressAuthGoogleButton () {
-      axios.get(process.env.API_ENDPOINT + '/api/auth/google', {withCredentials: true})
-        .then(response => {
-          // JSON responses are automatically parsed.
-          console.log('response')
-          console.log(response)
-        })
-        .catch(e => {
-          console.log('error')
-          console.log(e)
-        })
+      auth_google_url: process.env.BASE_URL + '/api/auth/google',
+      auth_github_url: process.env.BASE_URL + '/api/auth/github',
+      auth_twitter_url: process.env.BASE_URL + '/api/auth/twitter'
     }
   }
 }

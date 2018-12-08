@@ -44,7 +44,8 @@ bash "build aws-cert-univ client" do
   cwd '/var/www/aws-cert-univ/client'
   environment(
    "HOME" => "/home/acu",
-   "NODE_ENV" => "production"
+   "NODE_ENV" => "production",
+   'PATH' => '$PATH:/usr/bin:/usr/local/bin'
   )  
   code <<-EOC
       npm install
@@ -58,17 +59,10 @@ bash "build aws-cert-univ server" do
   cwd '/var/www/aws-cert-univ/server'
   environment(
    "HOME" => "/home/acu",
-   "NODE_ENV" => "production"
+   "NODE_ENV" => "production",
+   'PATH' => '$PATH:/usr/bin:/usr/local/bin'
   )  
   code <<-EOC
       npm install
   EOC
-end
-
-execute 'install strongloop' do
-  command 'npm install -g strongloop'
-end
-
-execute 'run application server' do
-  command 'slc start'
 end
