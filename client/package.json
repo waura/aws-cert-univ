@@ -21,7 +21,7 @@
     "jquery": "^3.0.0",
     "marked": "^0.5.2",
     "tough-cookie": "^2.5.0",
-    "vue": "^2.5.2",
+    "vue": "^2.5.18",
     "vue-cookie": "^1.1.4",
     "vue-router": "^3.0.2"
   },
@@ -41,7 +41,7 @@
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.22.0",
     "chalk": "^2.0.1",
-    "chromedriver": "^2.44.0",
+    "chromedriver": "^2.44.1",
     "copy-webpack-plugin": "^4.0.1",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.0",
@@ -64,7 +64,7 @@
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
-    "portfinder": "^1.0.13",
+    "portfinder": "^1.0.20",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
     "postcss-url": "^7.2.1",
@@ -80,7 +80,8 @@
     "vue-template-compiler": "^2.5.2",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dev-server": "^3.1.10",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "3.0.0",
     "webpack-merge": "^4.1.0"
   },
   "engines": {
