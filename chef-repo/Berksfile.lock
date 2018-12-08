@@ -6,6 +6,7 @@ DEPENDENCIES
   nginx (~> 9.0.0)
   nodejs (~> 6.0.0)
   sc-mongodb (~> 1.2.0)
+  selinux (~> 2.1.1)
   setup-aws-cert-univ
     path: site-cookbooks/setup-aws-cert-univ
   seven_zip (= 2.0.2)
@@ -39,6 +40,7 @@ GRAPH
     apt (>= 1.8.2)
     build-essential (>= 5.0.0)
     yum (>= 3.0)
+  selinux (2.1.1)
   setup-aws-cert-univ (0.1.0)
     git (>= 0.0.0)
   seven_zip (2.0.2)

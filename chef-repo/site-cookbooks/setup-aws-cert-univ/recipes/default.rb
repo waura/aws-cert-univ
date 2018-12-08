@@ -66,3 +66,17 @@ bash "build aws-cert-univ server" do
       npm install
   EOC
 end
+
+bash "start aws-cert-univ server" do
+  user 'acu'
+  group 'acu'
+  cwd '/var/www/aws-cert-univ/server'
+  environment(
+   "HOME" => "/home/acu",
+   "NODE_ENV" => "production",
+   'PATH' => '$PATH:/usr/bin:/usr/local/bin:/usr/local/nodejs-binary/bin'
+  )  
+  code <<-EOC
+      pm2 start server/server.js
+  EOC
+end
