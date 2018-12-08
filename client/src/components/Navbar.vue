@@ -3,14 +3,14 @@
 
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-    <b-navbar-brand href="/">{{ app_name }}</b-navbar-brand>
+    <b-navbar-brand to="/">{{ app_name }}</b-navbar-brand>
 
     <b-collapse is-nav id="nav_collapse">
 
       <!--
       <b-navbar-nav>
-        <b-nav-item href="#">Link</b-nav-item>
-        <b-nav-item href="/" disabled>Disabled</b-nav-item>
+        <b-nav-item to="#">Link</b-nav-item>
+        <b-nav-item to="/" disabled>Disabled</b-nav-item>
       </b-navbar-nav>
       -->
 
@@ -23,8 +23,8 @@
         </b-nav-form>
 
         <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item href="#">EN</b-dropdown-item>
-          <b-dropdown-item href="#">JA</b-dropdown-item>
+          <b-dropdown-item to="#">EN</b-dropdown-item>
+          <b-dropdown-item to="#">JA</b-dropdown-item>
         </b-nav-item-dropdown>
 
         <b-nav-item-dropdown v-if="loggedin" right>
@@ -32,7 +32,7 @@
           <template slot="button-content">
             <em>User</em>
           </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
+          <b-dropdown-item to="#">Profile</b-dropdown-item>
           <b-dropdown-item @click="$_logout()">Logout</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item to="/login" v-if="!loggedin">Login</b-nav-item>

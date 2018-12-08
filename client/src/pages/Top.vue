@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-row align-h="end" class="m-3" v-if="loggedin">
-      <b-button href="/questions/new">
+      <b-button to="/questions/new">
         Create New Question
       </b-button>
     </b-row>
