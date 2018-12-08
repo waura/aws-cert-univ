@@ -9,4 +9,5 @@ cookbook 'nodejs', '~> 6.0.0'
 cookbook 'sc-mongodb', '~> 1.2.0'
 
 cookbook 'mkdir-mongodb', path: './site-cookbooks/mkdir-mongodb'
+cookbook 'install-pm2', path: './site-cookbooks/install-pm2'
 cookbook 'setup-aws-cert-univ', path: './site-cookbooks/setup-aws-cert-univ'

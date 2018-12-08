@@ -1,5 +1,5 @@
 #
-# Cookbook:: install_pm2
+# Cookbook:: install-pm2
 # Recipe:: default
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.

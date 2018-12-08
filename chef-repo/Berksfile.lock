@@ -1,5 +1,7 @@
 DEPENDENCIES
   firewall (~> 2.6.5)
+  install-pm2
+    path: site-cookbooks/install-pm2
   iptables (~> 4.4.1)
   mkdir-mongodb
     path: site-cookbooks/mkdir-mongodb
@@ -24,6 +26,8 @@ GRAPH
     chef-sugar (>= 0.0.0)
   git (9.0.1)
     build-essential (>= 5.0.0)
+  install-pm2 (0.1.0)
+    nodejs (>= 0.0.0)
   iptables (4.4.1)
   mingw (2.1.0)
     seven_zip (>= 0.0.0)

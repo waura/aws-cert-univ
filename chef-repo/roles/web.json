@@ -18,6 +18,6 @@
       "recipe[iptables::disabled]",
       "recipe[nginx]",
       "recipe[nodejs]",
-      "recipe[install_pm2]"
+      "recipe[install-pm2]"
   ]
 }

@@ -64,15 +64,6 @@ for (var s in config) {
 }
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
-/*
-app.get('/auth/account', ensureLoggedIn('/login'), function(req, res, next) {
-  res.render('pages/loginProfiles', {
-    user: req.user,
-    url: req.url,
-  });
-});
-*/
-
 app.get('/auth/account', ensureLoggedIn('/login'), function(req, res, next) {
   console.log(req);
   console.log('referer = ' + req.headers.referer);
@@ -80,8 +71,6 @@ app.get('/auth/account', ensureLoggedIn('/login'), function(req, res, next) {
   var newUrl = urlObj.protocol + '//' + urlObj.host + '/auth/account';
   console.log('redirect to ' + newUrl);
 
-  //res.cookie('userId', req.cookies.userId);
-  //res.cookie('access_token', req.cookies.access_token);
   res.redirect(newUrl);
 });
 
