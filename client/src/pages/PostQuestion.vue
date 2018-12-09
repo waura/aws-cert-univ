@@ -25,17 +25,18 @@
                     id="sentenceLabel"
                     label="Examination Sentence:"
                     label-for="sentence">
-        <b-form-input id="sentence"
-                      type="text"
-                      v-model="form.sentence"
-                      required
-                      placeholder="Enter Examination Sentence" />
+        <b-form-textarea id="sentence"
+                         v-model="form.sentence"
+                         required
+                         placeholder="Enter Examination Sentence"
+                         :rows="3" />
       </b-form-group>
       <template v-for="(option, index) in form.options">
         <b-form-group class="m-3" :label="String(index)" :key="index">
-          <b-form-input type="text"
-                        v-model="form.options[index].sentence"
-                        placeholder="Enter" />
+          <b-form-textarea v-model="form.options[index].sentence"
+                           required
+                           placeholder="Enter"
+                           :rows="2" />
         </b-form-group>
       </template>
       <b-form-group class="m-3"
