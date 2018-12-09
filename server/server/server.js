@@ -68,7 +68,7 @@ app.get('/auth/account', ensureLoggedIn('/login'), function(req, res, next) {
   console.log(req);
   console.log('referer = ' + req.headers.referer);
   var urlObj = url.parse(req.headers.referer);
-  var newUrl = urlObj.protocol + '//' + urlObj.host + '/auth/account';
+  var newUrl = urlObj.protocol + '//' + urlObj.host + '/#/auth/account';
   console.log('redirect to ' + newUrl);
 
   res.redirect(newUrl);
