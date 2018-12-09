@@ -11,8 +11,8 @@
       <b-col>
         <b-card>
           <ol type="A">
-            <li v-for="option in question.options" :key="option.id">
-              {{option.sentence}}
+            <li v-for="(option, index) in question.options" :key="index">
+              {{option}}
             </li>
           </ol>
         </b-card>

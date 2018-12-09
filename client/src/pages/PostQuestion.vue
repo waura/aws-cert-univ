@@ -1,5 +1,13 @@
 <template>
   <div>
+    <!-- alert for failed to post-->
+    <b-alert variant="danger"
+             dismissible
+             :show="showFailedToPostAlert"
+             @dismissed="showFailedToPostAlert=false">
+      Failed to post the question.
+    </b-alert>
+    <!-- question form -->
     <b-form @submit="onSubmit" @reset="onReset">
       <b-form-group class="m-3"
                     id="categoriesLabel"
@@ -31,22 +39,24 @@
                          placeholder="Enter Examination Sentence"
                          :rows="3" />
       </b-form-group>
-      <template v-for="(option, index) in form.options">
-        <b-form-group class="m-3" :label="String(index)" :key="index">
-          <b-form-textarea v-model="form.options[index].sentence"
+      <b-form-group class="m-3" label="Options">
+        <template v-for="index in numberOfOptions">
+          <b-form-textarea :key="index"
+                           v-model="form.options[index - 1]"
                            required
                            placeholder="Enter"
                            :rows="2" />
-        </b-form-group>
-      </template>
+        </template>
+        <b-form-row align-h="end">
+          <b-button @click="updateNumberOfOptions(numberOfOptions - 1)">-</b-button>
+          <b-button @click="updateNumberOfOptions(numberOfOptions + 1)">+</b-button>
+        </b-form-row>
+      </b-form-group>
       <b-form-group class="m-3"
                     id="answerLable"
-                    label="Examination Answer:"
-                    label-for="examinationSentence">
-        <b-form-input id="answer"
-                      v-model="form.answer"
-                      type="text"
-                      placeholder="Enter Answer" />
+                    label="Examination Answer:">
+        <b-form-checkbox-group v-model="form.answer" :options="answerOptions">
+        </b-form-checkbox-group>
       </b-form-group>
       <b-form-group class="m-3"
                     id="commentaryLabel"
@@ -69,27 +79,14 @@ import axios from 'axios'
 export default {
   data () {
     return {
+      showFailedToPostAlert: false,
+      numberOfOptions: 4,
+      minNumberOfOptions: 1,
+      maxNumberOfOptions: 10,
       form: {
         sentence: '',
-        options: [
-          {
-            id: '1',
-            sentence: ''
-          },
-          {
-            id: '2',
-            sentence: ''
-          },
-          {
-            id: '3',
-            sentence: ''
-          },
-          {
-            id: '4',
-            sentence: ''
-          }
-        ],
-        answer: '',
+        options: [],
+        answer: [],
         commentary: ''
       },
       selectedCategories: [],
@@ -97,10 +94,12 @@ export default {
       originCategories: [],
       selectedTags: [],
       existingTags: {},
-      originTags: []
+      originTags: [],
+      answerOptions: []
     }
   },
   created: function () {
+    this.updateNumberOfOptions(this.numberOfOptions)
     this.updateCertificationCategories()
     this.updateQuetionTags()
   },
@@ -108,17 +107,13 @@ export default {
     onSubmit (evt) {
       evt.preventDefault()
 
-      console.log(this.selectedCategories)
-      console.log(this.selectedTags)
       axios.post(process.env.API_ENDPOINT + '/api/questions', this.form)
         .then(response => {
           var questionId = response.data.id
 
           // add link to certification categories
           for (const value of this.selectedCategories) {
-            console.log(value)
             var category = this.getOrginTags(this.originCategories, value)
-            console.log(category)
             this.linkToCategory(questionId, category.id)
           }
 
@@ -127,8 +122,12 @@ export default {
             var tag = this.getOrginTags(this.originTags, value)
             this.linkToTag(questionId, tag.id)
           }
+
+          // go to individual question page
+          this.$router.push(`/questions/${questionId}`)
         })
         .catch(e => {
+          this.showFailedToPostAlert = true
           console.log(e)
         })
     },
@@ -168,6 +167,17 @@ export default {
         .catch(e => {
           console.log(e)
         })
+    },
+    updateNumberOfOptions (numberOfOptions) {
+      if ((numberOfOptions < this.minNumberOfOptions) || (this.maxNumberOfOptions < numberOfOptions)) {
+        return
+      }
+      this.numberOfOptions = numberOfOptions
+
+      this.answerOptions = []
+      for (var i = 0; i < this.numberOfOptions; i++) {
+        this.answerOptions.push({text: String.fromCharCode('A'.charCodeAt() + i), value: i})
+      }
     },
     linkToCategory (questionId, categoryId) {
       axios.put(process.env.API_ENDPOINT + '/api/questions/' + questionId + '/certification_categories/rel/' + categoryId)

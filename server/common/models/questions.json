@@ -10,8 +10,12 @@
       "type": "string",
       "required": true
     },
+    "options": {
+      "type": [ "string" ],
+      "required": true
+    },
     "answer": {
-      "type": "string",
+      "type": [ "number" ],
       "required": true
     },
     "commentary": {
