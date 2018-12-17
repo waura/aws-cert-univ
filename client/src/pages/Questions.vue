@@ -3,7 +3,7 @@
     <b-row class="m-3">
       <b-col>
         <b-card>
-          {{question.sentence}}
+          <p>{{question.sentence}}</p>
         </b-card>
       </b-col>
     </b-row>
@@ -12,7 +12,7 @@
         <b-card>
           <ol type="A">
             <li v-for="(option, index) in question.options" :key="index">
-              {{option}}
+              <p>{{option}}</p>
             </li>
           </ol>
         </b-card>
