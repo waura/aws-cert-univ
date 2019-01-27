@@ -33,3 +33,23 @@ $ cd client
 $ npm install
 $ npm start
 ```
+
+## Deploy
+
+### Add New Node
+
+```
+$ knife zero bootstrap [SSH_USER]@[FQDN of Target Server] -N [Name of Node] --sudo
+```
+
+### Add Run List to Node
+
+```
+$ knife node run_list add [Name of Node] app web db "role[app]" "role[web]" "role[db]"
+```
+
+### Converge
+
+```
+$ knife zero converge name:staging-centos7 -x waura --sudo --attribute ipaddress
+```
