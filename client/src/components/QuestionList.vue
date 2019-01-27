@@ -3,7 +3,7 @@
     <b-table striped hover :items="questions" :fields="questionFields" :fixed="true">
       <template slot="sentence" slot-scope="data">
         <router-link :to="`/questions/${data.item.id}`">
-          {{data.item.sentence}}
+          {{data.item.sentence | truncate(40, '...')}}
         </router-link>
       </template>
       <template slot="certification_categories" slot-scope="data">
@@ -75,6 +75,18 @@ export default {
     }
     this.updateTotalNumOfQuestions()
     this.updateTable()
+  },
+  filters: {
+    truncate: function (value, length, omission) {
+      length = length ? parseInt(length, 10) : 20
+      omission = omission ? omission.toString() : '...'
+
+      if (value.length <= length) {
+        return value
+      } else {
+        return value.substring(0, length) + omission
+      }
+    }
   },
   methods: {
     onSelectedDropdownItem (item) {
