@@ -45,11 +45,11 @@ $ knife zero bootstrap [SSH_USER]@[FQDN of Target Server] -N [Name of Node] --su
 ### Add Run List to Node
 
 ```
-$ knife node run_list add [Name of Node] app web db "role[app]" "role[web]" "role[db]"
+$ knife node run_list add [Name of Node] "role[app]" "role[web]" "role[db]"
 ```
 
 ### Converge
 
 ```
-$ knife zero converge name:staging-centos7 -x waura --sudo --attribute ipaddress
+$ knife zero converge name:staging-centos7 -x [SSH_USER] --sudo --attribute ipaddress
 ```
